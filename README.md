@@ -1,0 +1,71 @@
+# Aurigma Customer's Canvas SDK - BackOffice API Client
+======================================================
+
+This module is a PHP API client for BackOffice API which is a part of [**Customer's Canvas**](https://customerscanvas.com) web-to-print system. It is supposed that you are familiar with its services and understand how to use its APIs. To learn more about Customer's Canvas and its services, refer the [Getting Started section of its documentation](https://customerscanvas.com/dev/getting-started/intro.html).
+
+## Pre-requisites
+
+To be able to use this package, you need to meet the following requirements: 
+
+* You must have an account at Customer's Canvas.
+
+For other platforms, see the [Backend services](https://customerscanvas.com/dev/getting-started/about-backend-services.html) article in Customer's Canvas documentation. 
+
+
+## Installation
+
+```
+composer require aurigma/backoffice-api-client
+```
+
+### Requirements
+
+PHP 7.4 and later.
+Should also work with PHP 8.0.
+
+### Composer
+
+To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
+
+```json
+{
+  "require": {
+    "aurigma/backoffice-api-client": "*@dev"
+  }
+}
+```
+
+Then run `composer install`
+
+## Getting Started
+
+Please follow the [installation procedure](#installation--usage) and then run the following:
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\BackOffice\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\BackOffice\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Aurigma\BackOffice\Api\BuildInfoApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+
+try {
+    $result = $apiInstance->buildInfoGetInfo();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BuildInfoApi->buildInfoGetInfo: ', $e->getMessage(), PHP_EOL;
+}
+
+```
+
+## Author
+
+Aurigma Inc <info@aurigma.com> (https://customerscanvas.com)
