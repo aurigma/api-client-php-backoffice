@@ -86,11 +86,11 @@ class UpdateProjectStatusDto implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'code' => false,
+        'code' => true,
         'color' => true,
         'display_name' => true,
-        'is_initial' => false,
-        'is_final' => false
+        'is_initial' => true,
+        'is_final' => true
     ];
 
     /**
@@ -338,7 +338,14 @@ class UpdateProjectStatusDto implements ModelInterface, ArrayAccess, \JsonSerial
     public function setCode($code)
     {
         if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['code'] = $code;
 
@@ -433,7 +440,14 @@ class UpdateProjectStatusDto implements ModelInterface, ArrayAccess, \JsonSerial
     public function setIsInitial($is_initial)
     {
         if (is_null($is_initial)) {
-            throw new \InvalidArgumentException('non-nullable is_initial cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is_initial');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_initial', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['is_initial'] = $is_initial;
 
@@ -460,7 +474,14 @@ class UpdateProjectStatusDto implements ModelInterface, ArrayAccess, \JsonSerial
     public function setIsFinal($is_final)
     {
         if (is_null($is_final)) {
-            throw new \InvalidArgumentException('non-nullable is_final cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is_final');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_final', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['is_final'] = $is_final;
 
