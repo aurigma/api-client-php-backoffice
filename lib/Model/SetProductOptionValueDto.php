@@ -62,6 +62,7 @@ class SetProductOptionValueDto implements ModelInterface, ArrayAccess, \JsonSeri
         'description' => 'string',
         'sort_index' => 'int',
         'is_default' => 'bool',
+        'title' => 'string',
         'value' => 'string',
         'colors' => 'string[]'
     ];
@@ -78,6 +79,7 @@ class SetProductOptionValueDto implements ModelInterface, ArrayAccess, \JsonSeri
         'description' => null,
         'sort_index' => 'int32',
         'is_default' => null,
+        'title' => null,
         'value' => null,
         'colors' => null
     ];
@@ -92,6 +94,7 @@ class SetProductOptionValueDto implements ModelInterface, ArrayAccess, \JsonSeri
         'description' => true,
         'sort_index' => false,
         'is_default' => false,
+        'title' => true,
         'value' => true,
         'colors' => true
     ];
@@ -186,6 +189,7 @@ class SetProductOptionValueDto implements ModelInterface, ArrayAccess, \JsonSeri
         'description' => 'description',
         'sort_index' => 'sortIndex',
         'is_default' => 'isDefault',
+        'title' => 'title',
         'value' => 'value',
         'colors' => 'colors'
     ];
@@ -200,6 +204,7 @@ class SetProductOptionValueDto implements ModelInterface, ArrayAccess, \JsonSeri
         'description' => 'setDescription',
         'sort_index' => 'setSortIndex',
         'is_default' => 'setIsDefault',
+        'title' => 'setTitle',
         'value' => 'setValue',
         'colors' => 'setColors'
     ];
@@ -214,6 +219,7 @@ class SetProductOptionValueDto implements ModelInterface, ArrayAccess, \JsonSeri
         'description' => 'getDescription',
         'sort_index' => 'getSortIndex',
         'is_default' => 'getIsDefault',
+        'title' => 'getTitle',
         'value' => 'getValue',
         'colors' => 'getColors'
     ];
@@ -279,6 +285,7 @@ class SetProductOptionValueDto implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('sort_index', $data ?? [], null);
         $this->setIfExists('is_default', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('value', $data ?? [], null);
         $this->setIfExists('colors', $data ?? [], null);
     }
@@ -443,6 +450,40 @@ class SetProductOptionValueDto implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable is_default cannot be null');
         }
         $this->container['is_default'] = $is_default;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     *
+     * @return string|null
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string|null $title Product option title.
+     *
+     * @return self
+     */
+    public function setTitle($title)
+    {
+        if (is_null($title)) {
+            array_push($this->openAPINullablesSetToNull, 'title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['title'] = $title;
 
         return $this;
     }

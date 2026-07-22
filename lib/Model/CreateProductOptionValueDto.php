@@ -58,7 +58,9 @@ class CreateProductOptionValueDto implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'value' => 'string'
+        'title' => 'string',
+        'value' => 'string',
+        'description' => 'string'
     ];
 
     /**
@@ -69,7 +71,9 @@ class CreateProductOptionValueDto implements ModelInterface, ArrayAccess, \JsonS
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'value' => null
+        'title' => null,
+        'value' => null,
+        'description' => null
     ];
 
     /**
@@ -78,7 +82,9 @@ class CreateProductOptionValueDto implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'value' => true
+        'title' => true,
+        'value' => true,
+        'description' => true
     ];
 
     /**
@@ -167,7 +173,9 @@ class CreateProductOptionValueDto implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $attributeMap = [
-        'value' => 'value'
+        'title' => 'title',
+        'value' => 'value',
+        'description' => 'description'
     ];
 
     /**
@@ -176,7 +184,9 @@ class CreateProductOptionValueDto implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $setters = [
-        'value' => 'setValue'
+        'title' => 'setTitle',
+        'value' => 'setValue',
+        'description' => 'setDescription'
     ];
 
     /**
@@ -185,7 +195,9 @@ class CreateProductOptionValueDto implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $getters = [
-        'value' => 'getValue'
+        'title' => 'getTitle',
+        'value' => 'getValue',
+        'description' => 'getDescription'
     ];
 
     /**
@@ -245,7 +257,9 @@ class CreateProductOptionValueDto implements ModelInterface, ArrayAccess, \JsonS
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('value', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
     }
 
     /**
@@ -291,6 +305,40 @@ class CreateProductOptionValueDto implements ModelInterface, ArrayAccess, \JsonS
 
 
     /**
+     * Gets title
+     *
+     * @return string|null
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string|null $title Product option title.
+     *
+     * @return self
+     */
+    public function setTitle($title)
+    {
+        if (is_null($title)) {
+            array_push($this->openAPINullablesSetToNull, 'title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
      * Gets value
      *
      * @return string|null
@@ -320,6 +368,40 @@ class CreateProductOptionValueDto implements ModelInterface, ArrayAccess, \JsonS
             }
         }
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description Product option description.
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['description'] = $description;
 
         return $this;
     }

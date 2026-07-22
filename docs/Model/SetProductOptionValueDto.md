@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **description** | **string** | Product option value description. | [optional]
 **sort_index** | **int** | Product option value sort index. | [optional]
 **is_default** | **bool** | Indicates if product option value is used as a default value. | [optional]
+**title** | **string** | Product option title. | [optional]
 **value** | **string** | Product option value. | [optional]
 **colors** | **string[]** | Product option value colors. | [optional]
 
