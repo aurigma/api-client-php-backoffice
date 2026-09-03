@@ -66,6 +66,7 @@ class ProductVariantDesignDto implements ModelInterface, ArrayAccess, \JsonSeria
         'is_available' => 'bool',
         'price' => 'float',
         'sort_index' => 'int',
+        'personalization_workflow_id' => 'int',
         'storefront_product_variant_id' => 'string',
         'sku' => 'string',
         'design_id' => 'string',
@@ -93,6 +94,7 @@ class ProductVariantDesignDto implements ModelInterface, ArrayAccess, \JsonSeria
         'is_available' => null,
         'price' => 'double',
         'sort_index' => 'int32',
+        'personalization_workflow_id' => 'int32',
         'storefront_product_variant_id' => null,
         'sku' => null,
         'design_id' => null,
@@ -118,6 +120,7 @@ class ProductVariantDesignDto implements ModelInterface, ArrayAccess, \JsonSeria
         'is_available' => false,
         'price' => true,
         'sort_index' => false,
+        'personalization_workflow_id' => true,
         'storefront_product_variant_id' => true,
         'sku' => true,
         'design_id' => true,
@@ -223,6 +226,7 @@ class ProductVariantDesignDto implements ModelInterface, ArrayAccess, \JsonSeria
         'is_available' => 'isAvailable',
         'price' => 'price',
         'sort_index' => 'sortIndex',
+        'personalization_workflow_id' => 'personalizationWorkflowId',
         'storefront_product_variant_id' => 'storefrontProductVariantId',
         'sku' => 'sku',
         'design_id' => 'designId',
@@ -248,6 +252,7 @@ class ProductVariantDesignDto implements ModelInterface, ArrayAccess, \JsonSeria
         'is_available' => 'setIsAvailable',
         'price' => 'setPrice',
         'sort_index' => 'setSortIndex',
+        'personalization_workflow_id' => 'setPersonalizationWorkflowId',
         'storefront_product_variant_id' => 'setStorefrontProductVariantId',
         'sku' => 'setSku',
         'design_id' => 'setDesignId',
@@ -273,6 +278,7 @@ class ProductVariantDesignDto implements ModelInterface, ArrayAccess, \JsonSeria
         'is_available' => 'getIsAvailable',
         'price' => 'getPrice',
         'sort_index' => 'getSortIndex',
+        'personalization_workflow_id' => 'getPersonalizationWorkflowId',
         'storefront_product_variant_id' => 'getStorefrontProductVariantId',
         'sku' => 'getSku',
         'design_id' => 'getDesignId',
@@ -349,6 +355,7 @@ class ProductVariantDesignDto implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('is_available', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
         $this->setIfExists('sort_index', $data ?? [], null);
+        $this->setIfExists('personalization_workflow_id', $data ?? [], null);
         $this->setIfExists('storefront_product_variant_id', $data ?? [], null);
         $this->setIfExists('sku', $data ?? [], null);
         $this->setIfExists('design_id', $data ?? [], null);
@@ -628,6 +635,40 @@ class ProductVariantDesignDto implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable sort_index cannot be null');
         }
         $this->container['sort_index'] = $sort_index;
+
+        return $this;
+    }
+
+    /**
+     * Gets personalization_workflow_id
+     *
+     * @return int|null
+     */
+    public function getPersonalizationWorkflowId()
+    {
+        return $this->container['personalization_workflow_id'];
+    }
+
+    /**
+     * Sets personalization_workflow_id
+     *
+     * @param int|null $personalization_workflow_id Design-specific personalization workflow identifier.
+     *
+     * @return self
+     */
+    public function setPersonalizationWorkflowId($personalization_workflow_id)
+    {
+        if (is_null($personalization_workflow_id)) {
+            array_push($this->openAPINullablesSetToNull, 'personalization_workflow_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('personalization_workflow_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['personalization_workflow_id'] = $personalization_workflow_id;
 
         return $this;
     }

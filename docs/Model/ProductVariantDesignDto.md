@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **is_available** | **bool** | Product variant available. | [optional]
 **price** | **float** | Product variant price. | [optional]
 **sort_index** | **int** | Product variant sort index. | [optional]
+**personalization_workflow_id** | **int** | Design-specific personalization workflow identifier. | [optional]
 **storefront_product_variant_id** | **string** | Product variant identifier (usually SKU) in storefront / online store. | [optional]
 **sku** | **string** | Product variant SKU. | [optional]
 **design_id** | **string** | Design identifier. | [optional]

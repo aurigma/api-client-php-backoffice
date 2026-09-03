@@ -12,7 +12,10 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**productsManagementGetAllProducts()**](ProductsManagementApi.md#productsManagementGetAllProducts) | **GET** /api/backoffice/v1/products | Returns all products, relevant to the specified query parameters. |
 | [**productsManagementGetAvailablePersonalizationWorkflows()**](ProductsManagementApi.md#productsManagementGetAvailablePersonalizationWorkflows) | **GET** /api/backoffice/v1/products/available-workflows | Returns all available product personalization workflows. |
 | [**productsManagementGetAvailableProcessingPipelines()**](ProductsManagementApi.md#productsManagementGetAvailableProcessingPipelines) | **GET** /api/backoffice/v1/products/available-pipelines | Returns all available product processing pipelines. |
+| [**productsManagementGetDocumentConnections()**](ProductsManagementApi.md#productsManagementGetDocumentConnections) | **GET** /api/backoffice/v1/products/{id}/document-connections |  |
+| [**productsManagementGetMockupConnections()**](ProductsManagementApi.md#productsManagementGetMockupConnections) | **GET** /api/backoffice/v1/products/{id}/mockup-connections |  |
 | [**productsManagementGetProduct()**](ProductsManagementApi.md#productsManagementGetProduct) | **GET** /api/backoffice/v1/products/{id} | Returns a product by its identifier. |
+| [**productsManagementGetProductDesignConnections()**](ProductsManagementApi.md#productsManagementGetProductDesignConnections) | **GET** /api/backoffice/v1/products/{id}/design-connections |  |
 | [**productsManagementGetProductOptions()**](ProductsManagementApi.md#productsManagementGetProductOptions) | **GET** /api/backoffice/v1/products/{id}/options | Returns a list of product options. |
 | [**productsManagementGetProductVariant()**](ProductsManagementApi.md#productsManagementGetProductVariant) | **GET** /api/backoffice/v1/products/{id}/variants/{productVariantId} | Returns a product variant. |
 | [**productsManagementGetProductVariantDesigns()**](ProductsManagementApi.md#productsManagementGetProductVariantDesigns) | **GET** /api/backoffice/v1/products/{id}/variant-designs | Returns a list of product variant designs. |
@@ -639,6 +642,152 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `productsManagementGetDocumentConnections()`
+
+```php
+productsManagementGetDocumentConnections($id, $tenant_id): \Aurigma\BackOffice\Model\ProductDocumentConnectionDto[]
+```
+
+
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\BackOffice\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\BackOffice\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\BackOffice\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\BackOffice\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
+$config = Aurigma\BackOffice\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\BackOffice\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Aurigma\BackOffice\Api\ProductsManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int
+$tenant_id = 56; // int | Tenant identifier.
+
+try {
+    $result = $apiInstance->productsManagementGetDocumentConnections($id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProductsManagementApi->productsManagementGetDocumentConnections: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
+| **tenant_id** | **int**| Tenant identifier. | [optional] |
+
+### Return type
+
+[**\Aurigma\BackOffice\Model\ProductDocumentConnectionDto[]**](../Model/ProductDocumentConnectionDto.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `productsManagementGetMockupConnections()`
+
+```php
+productsManagementGetMockupConnections($id, $tenant_id): \Aurigma\BackOffice\Model\ProductMockupConnectionDto[]
+```
+
+
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\BackOffice\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\BackOffice\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\BackOffice\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\BackOffice\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
+$config = Aurigma\BackOffice\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\BackOffice\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Aurigma\BackOffice\Api\ProductsManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int
+$tenant_id = 56; // int | Tenant identifier.
+
+try {
+    $result = $apiInstance->productsManagementGetMockupConnections($id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProductsManagementApi->productsManagementGetMockupConnections: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
+| **tenant_id** | **int**| Tenant identifier. | [optional] |
+
+### Return type
+
+[**\Aurigma\BackOffice\Model\ProductMockupConnectionDto[]**](../Model/ProductMockupConnectionDto.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `productsManagementGetProduct()`
 
 ```php
@@ -700,6 +849,79 @@ try {
 ### Return type
 
 [**\Aurigma\BackOffice\Model\ProductDto**](../Model/ProductDto.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `productsManagementGetProductDesignConnections()`
+
+```php
+productsManagementGetProductDesignConnections($id, $tenant_id): \Aurigma\BackOffice\Model\ProductDesignConnectionDto[]
+```
+
+
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\BackOffice\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\BackOffice\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\BackOffice\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\BackOffice\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
+$config = Aurigma\BackOffice\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\BackOffice\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Aurigma\BackOffice\Api\ProductsManagementApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int
+$tenant_id = 56; // int | Tenant identifier.
+
+try {
+    $result = $apiInstance->productsManagementGetProductDesignConnections($id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProductsManagementApi->productsManagementGetProductDesignConnections: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
+| **tenant_id** | **int**| Tenant identifier. | [optional] |
+
+### Return type
+
+[**\Aurigma\BackOffice\Model\ProductDesignConnectionDto[]**](../Model/ProductDesignConnectionDto.md)
 
 ### Authorization
 

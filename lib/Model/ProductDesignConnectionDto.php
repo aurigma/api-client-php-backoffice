@@ -59,6 +59,7 @@ class ProductDesignConnectionDto implements ModelInterface, ArrayAccess, \JsonSe
       */
     protected static $openAPITypes = [
         'design_id' => 'string',
+        'personalization_workflow_id' => 'int',
         'options' => '\Aurigma\BackOffice\Model\ProductAssetConnectionOptionsDto[]'
     ];
 
@@ -71,6 +72,7 @@ class ProductDesignConnectionDto implements ModelInterface, ArrayAccess, \JsonSe
       */
     protected static $openAPIFormats = [
         'design_id' => null,
+        'personalization_workflow_id' => 'int32',
         'options' => null
     ];
 
@@ -81,6 +83,7 @@ class ProductDesignConnectionDto implements ModelInterface, ArrayAccess, \JsonSe
       */
     protected static array $openAPINullables = [
         'design_id' => true,
+        'personalization_workflow_id' => true,
         'options' => true
     ];
 
@@ -171,6 +174,7 @@ class ProductDesignConnectionDto implements ModelInterface, ArrayAccess, \JsonSe
      */
     protected static $attributeMap = [
         'design_id' => 'designId',
+        'personalization_workflow_id' => 'personalizationWorkflowId',
         'options' => 'options'
     ];
 
@@ -181,6 +185,7 @@ class ProductDesignConnectionDto implements ModelInterface, ArrayAccess, \JsonSe
      */
     protected static $setters = [
         'design_id' => 'setDesignId',
+        'personalization_workflow_id' => 'setPersonalizationWorkflowId',
         'options' => 'setOptions'
     ];
 
@@ -191,6 +196,7 @@ class ProductDesignConnectionDto implements ModelInterface, ArrayAccess, \JsonSe
      */
     protected static $getters = [
         'design_id' => 'getDesignId',
+        'personalization_workflow_id' => 'getPersonalizationWorkflowId',
         'options' => 'getOptions'
     ];
 
@@ -252,6 +258,7 @@ class ProductDesignConnectionDto implements ModelInterface, ArrayAccess, \JsonSe
     public function __construct(array $data = null)
     {
         $this->setIfExists('design_id', $data ?? [], null);
+        $this->setIfExists('personalization_workflow_id', $data ?? [], null);
         $this->setIfExists('options', $data ?? [], null);
     }
 
@@ -327,6 +334,40 @@ class ProductDesignConnectionDto implements ModelInterface, ArrayAccess, \JsonSe
             }
         }
         $this->container['design_id'] = $design_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets personalization_workflow_id
+     *
+     * @return int|null
+     */
+    public function getPersonalizationWorkflowId()
+    {
+        return $this->container['personalization_workflow_id'];
+    }
+
+    /**
+     * Sets personalization_workflow_id
+     *
+     * @param int|null $personalization_workflow_id Design-specific personalization workflow identifier.
+     *
+     * @return self
+     */
+    public function setPersonalizationWorkflowId($personalization_workflow_id)
+    {
+        if (is_null($personalization_workflow_id)) {
+            array_push($this->openAPINullablesSetToNull, 'personalization_workflow_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('personalization_workflow_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['personalization_workflow_id'] = $personalization_workflow_id;
 
         return $this;
     }
