@@ -59,6 +59,7 @@ docs/Model/PagedOfTenantUserRoleDto.md
 docs/Model/PersonalizationWorkflowDto.md
 docs/Model/ProcessingPipelineDto.md
 docs/Model/ProductAssetConnectionOptionsDto.md
+docs/Model/ProductAttributeDto.md
 docs/Model/ProductDesignConnectionDto.md
 docs/Model/ProductDocumentConnectionDto.md
 docs/Model/ProductDto.md
@@ -201,6 +202,7 @@ lib/Model/PagedOfTenantUserRoleDto.php
 lib/Model/PersonalizationWorkflowDto.php
 lib/Model/ProcessingPipelineDto.php
 lib/Model/ProductAssetConnectionOptionsDto.php
+lib/Model/ProductAttributeDto.php
 lib/Model/ProductDesignConnectionDto.php
 lib/Model/ProductDocumentConnectionDto.php
 lib/Model/ProductDto.php

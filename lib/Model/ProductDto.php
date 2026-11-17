@@ -68,6 +68,7 @@ class ProductDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'last_modified' => '\DateTime',
         'tags' => 'string[]',
         'custom_fields' => 'array<string,string>',
+        'attributes' => '\Aurigma\BackOffice\Model\ProductAttributeDto[]',
         'personalization_workflow_id' => 'int',
         'processing_pipeline_id' => 'int',
         'storefront_id' => 'int',
@@ -93,6 +94,7 @@ class ProductDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'last_modified' => 'date-time',
         'tags' => null,
         'custom_fields' => null,
+        'attributes' => null,
         'personalization_workflow_id' => 'int32',
         'processing_pipeline_id' => 'int32',
         'storefront_id' => 'int32',
@@ -116,6 +118,7 @@ class ProductDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'last_modified' => true,
         'tags' => true,
         'custom_fields' => true,
+        'attributes' => true,
         'personalization_workflow_id' => false,
         'processing_pipeline_id' => false,
         'storefront_id' => true,
@@ -219,6 +222,7 @@ class ProductDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'last_modified' => 'lastModified',
         'tags' => 'tags',
         'custom_fields' => 'customFields',
+        'attributes' => 'attributes',
         'personalization_workflow_id' => 'personalizationWorkflowId',
         'processing_pipeline_id' => 'processingPipelineId',
         'storefront_id' => 'storefrontId',
@@ -242,6 +246,7 @@ class ProductDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'last_modified' => 'setLastModified',
         'tags' => 'setTags',
         'custom_fields' => 'setCustomFields',
+        'attributes' => 'setAttributes',
         'personalization_workflow_id' => 'setPersonalizationWorkflowId',
         'processing_pipeline_id' => 'setProcessingPipelineId',
         'storefront_id' => 'setStorefrontId',
@@ -265,6 +270,7 @@ class ProductDto implements ModelInterface, ArrayAccess, \JsonSerializable
         'last_modified' => 'getLastModified',
         'tags' => 'getTags',
         'custom_fields' => 'getCustomFields',
+        'attributes' => 'getAttributes',
         'personalization_workflow_id' => 'getPersonalizationWorkflowId',
         'processing_pipeline_id' => 'getProcessingPipelineId',
         'storefront_id' => 'getStorefrontId',
@@ -339,6 +345,7 @@ class ProductDto implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('last_modified', $data ?? [], null);
         $this->setIfExists('tags', $data ?? [], null);
         $this->setIfExists('custom_fields', $data ?? [], null);
+        $this->setIfExists('attributes', $data ?? [], null);
         $this->setIfExists('personalization_workflow_id', $data ?? [], null);
         $this->setIfExists('processing_pipeline_id', $data ?? [], null);
         $this->setIfExists('storefront_id', $data ?? [], null);
@@ -696,6 +703,40 @@ class ProductDto implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['custom_fields'] = $custom_fields;
+
+        return $this;
+    }
+
+    /**
+     * Gets attributes
+     *
+     * @return \Aurigma\BackOffice\Model\ProductAttributeDto[]|null
+     */
+    public function getAttributes()
+    {
+        return $this->container['attributes'];
+    }
+
+    /**
+     * Sets attributes
+     *
+     * @param \Aurigma\BackOffice\Model\ProductAttributeDto[]|null $attributes List of product attributes.
+     *
+     * @return self
+     */
+    public function setAttributes($attributes)
+    {
+        if (is_null($attributes)) {
+            array_push($this->openAPINullablesSetToNull, 'attributes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('attributes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['attributes'] = $attributes;
 
         return $this;
     }

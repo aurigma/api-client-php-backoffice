@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **last_modified** | **\DateTime** | Product modification time. | [optional]
 **tags** | **string[]** | Product tags. | [optional]
 **custom_fields** | **array<string,string>** | Product custom fields. | [optional]
+**attributes** | [**\Aurigma\BackOffice\Model\ProductAttributeDto[]**](ProductAttributeDto.md) | List of product attributes. | [optional]
 **personalization_workflow_id** | **int** | Personalization workflow identifier. | [optional]
 **processing_pipeline_id** | **int** | Processing pipeline identifier. | [optional]
 **storefront_id** | **int** | Default storefront identifier. | [optional]
